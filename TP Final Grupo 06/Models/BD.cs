@@ -8,9 +8,7 @@ namespace TP_Final_Grupo_06.Models
 {
     public class BD
     {
-        Usuario unUsuario;
-
-        private static string _connectionString = "Server=.;Database=;Trusted_Connection=True;";
+        private static string _connectionString = "Server=.;Database=TP Final - Grupo 06 posta;Trusted_Connection=True;";
 
         public static string ConnectionString
         {
@@ -23,7 +21,8 @@ namespace TP_Final_Grupo_06.Models
 
         private static SqlConnection Conectar()
         {
-            SqlConnection conn = new SqlConnection(_connectionString);
+            SqlConnection conn = new SqlConnection(ConnectionString);
+            conn.Open();
             return conn;
         }
 
@@ -54,6 +53,27 @@ namespace TP_Final_Grupo_06.Models
             }
             Desconectar(conn);
             return lista;
+        }
+
+        public static List<Local> Obtener_Todos_Locales()
+        {
+            List<Local> lista_local = new List<Local>();
+            SqlConnection conn = Conectar();
+            SqlCommand consulta = conn.CreateCommand();
+            consulta.CommandText = "SELECT id_local, nombre_local, piso, lugar FROM Local";
+            consulta.CommandType = System.Data.CommandType.Text;
+            SqlDataReader data_reader = consulta.ExecuteReader();
+            while (data_reader.Read())
+            {
+                int id_local = Convert.ToInt32(data_reader["id_local"]);
+                string nombre_local = (data_reader["nombre_local"]).ToString();
+                int piso = Convert.ToInt32(data_reader["piso"]);
+                int lugar = Convert.ToInt32(data_reader["idlugar"]);
+                Local unLocal = new Local(id_local, nombre_local, piso, lugar);
+                lista_local.Add(unLocal);
+            }
+            Desconectar(conn);
+            return lista_local;
         }
     }
 }

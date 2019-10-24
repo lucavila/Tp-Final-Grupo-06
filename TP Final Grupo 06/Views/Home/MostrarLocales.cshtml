@@ -1,0 +1,15 @@
+﻿@using TP_Final_Grupo_06.Models;
+@model Local
+@{
+    ViewBag.Title = "MostrarLocales";
+}
+
+<h2>MostrarLocales</h2>
+
+<ul>
+    @foreach (Local l in ViewBag.Lista)
+    {
+    <li>@l.id_local-@l.nombre_local-@l.piso-@l.lugar</li>
+    }
+</ul>
+

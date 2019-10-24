@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TP_Final_Grupo_06.Models;
 
 namespace TP_Final_Grupo_06.Controllers
 {
@@ -10,6 +11,13 @@ namespace TP_Final_Grupo_06.Controllers
     {
         public ActionResult Index()
         {
+            //ViewBag.Lista = BD.Obtener_Todos_Usuarios();
+            return View();
+        }
+
+        public ActionResult MostrarLocales()
+        {
+            ViewBag.Lista = BD.Obtener_Todos_Local();
             return View();
         }
 

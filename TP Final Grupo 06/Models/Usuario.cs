@@ -92,7 +92,7 @@ namespace TP_Final_Grupo_06.Models
             }
             set
             {
-                _nombre = value;
+                _id_locales_favoritos = value;
             }
         }
     }
