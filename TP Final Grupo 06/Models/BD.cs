@@ -68,7 +68,7 @@ namespace TP_Final_Grupo_06.Models
                 int id_local = Convert.ToInt32(data_reader["id_local"]);
                 string nombre_local = (data_reader["nombre_local"]).ToString();
                 int piso = Convert.ToInt32(data_reader["piso"]);
-                int lugar = Convert.ToInt32(data_reader["idlugar"]);
+                int lugar = Convert.ToInt32(data_reader["lugar"]);
                 Local unLocal = new Local(id_local, nombre_local, piso, lugar);
                 lista_local.Add(unLocal);
             }
