@@ -8,7 +8,7 @@ namespace TP_Final_Grupo_06.Models
 {
     public class BD
     {
-        private static string _connectionString = "Server=.;Database=TP Final - Grupo 06 posta;Trusted_Connection=True;";
+        private static string _connectionString = "Server=10.128.8.16;Database=AlmagroShopping;User Id = ashopping;Password=yatay240;";
 
         public static string ConnectionString
         {
