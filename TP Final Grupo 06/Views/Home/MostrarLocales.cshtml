@@ -4,12 +4,31 @@
     ViewBag.Title = "MostrarLocales";
 }
 
-<h2>MostrarLocales</h2>
+<h2>Locales</h2>
 
-<ul>
-    @foreach (Local l in ViewBag.Lista)
-    {
-    <li>@l.id_local-@l.nombre_local-@l.piso-@l.lugar</li>
-    }
-</ul>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id Local</th>
+                <th>Nombre</th>
+                <th>Piso</th>
+                <th>Lugar</th>
+            </tr>
+        </thead>
 
+        @foreach (Local l in ViewBag.Lista)
+        {
+            <tbody>
+                <tr>
+                    <td>@l.id_local</td>
+                    <td>@l.nombre_local</td>
+                    <td>@l.piso</td>
+                    <td>@l.lugar</td>
+                </tr>
+            </tbody>
+        }
+    </table>
+</div>
+</body>
+</html>
