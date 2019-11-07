@@ -32,7 +32,7 @@ namespace TP_Final_Grupo_06.Models
 
         }
 
-        public static List<Usuario> Obtener_Todos_Usuarios()
+        /*public static List<Usuario> Obtener_Todos_Usuarios()
         {
             List<Usuario> lista = new List <Usuario>();
             SqlConnection conn = Conectar();
@@ -53,7 +53,7 @@ namespace TP_Final_Grupo_06.Models
             }
             Desconectar(conn);
             return lista;
-        }
+        }*/
 
         public static List<Local> Obtener_Todos_Locales()
         {
