@@ -32,7 +32,7 @@ namespace TP_Final_Grupo_06.Models
 
         }
 
-        public static List<Usuario> Obtener_Todos_Usuarios()
+        /*public static List<Usuario> Obtener_Todos_Usuarios()
         {
             List<Usuario> lista = new List <Usuario>();
             SqlConnection conn = Conectar();
@@ -53,14 +53,14 @@ namespace TP_Final_Grupo_06.Models
             }
             Desconectar(conn);
             return lista;
-        }
+        }*/
 
         public static List<Local> Obtener_Todos_Locales()
         {
             List<Local> lista_local = new List<Local>();
             SqlConnection conn = Conectar();
             SqlCommand consulta = conn.CreateCommand();
-            consulta.CommandText = "SELECT id_local, nombre_local, piso, lugar FROM Local";
+            consulta.CommandText = "SELECT id_local, nombre_local, piso, zona FROM Local";
             consulta.CommandType = System.Data.CommandType.Text;
             SqlDataReader data_reader = consulta.ExecuteReader();
             while (data_reader.Read())
@@ -68,8 +68,8 @@ namespace TP_Final_Grupo_06.Models
                 int id_local = Convert.ToInt32(data_reader["id_local"]);
                 string nombre_local = (data_reader["nombre_local"]).ToString();
                 int piso = Convert.ToInt32(data_reader["piso"]);
-                int lugar = Convert.ToInt32(data_reader["lugar"]);
-                Local unLocal = new Local(id_local, nombre_local, piso, lugar);
+                int zona = Convert.ToInt32(data_reader["zona"]);
+                Local unLocal = new Local(id_local, nombre_local, piso, zona);
                 lista_local.Add(unLocal);
             }
             Desconectar(conn);
