@@ -75,5 +75,16 @@ namespace TP_Final_Grupo_06.Models
             Desconectar(conn);
             return lista_local;
         }
+
+        public static Usuario Login(Usuario miUsuario)
+        {
+            SqlConnection conn = Conectar();
+            Usuario unUsuario = null;
+            SqlCommand consulta = conn.CreateCommand();
+            consulta.CommandText = "sp_LogIn";
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.Parameters.AddWithValue("@usu",miUsuario.NombreDeUsuario)
+            consulta.Parameters.AddWithValue("@pass",miUsuario.Contraseña)
+        }
     }
 }
