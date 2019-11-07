@@ -8,92 +8,105 @@ namespace TP_Final_Grupo_06.Models
     public class Usuario
     {
         private int _id_usuario;
+        private string _nombreusuario;
+        private string _contraseña;
         private string _nombre;
         private string _apellido;
         private string _telefono;
         private string _mail;
-        private int _id_locales_favoritos;
 
-        public Usuario(int id_usuario, string nombre, string apellido, string telefono, string mail, int id_locales_favoritos)
+        public Usuario(int id_usuario, string nombreusuario, string contraseña, string nombre, string apellido, string telefono, string mail)
         {
             _id_usuario = id_usuario;
+            _nombreusuario = nombreusuario;
+            _contraseña = contraseña;
             _nombre = nombre;
             _apellido = apellido;
             _telefono = telefono;
             _mail = mail;
-            _id_locales_favoritos = id_locales_favoritos;
         }
 
         public int id_usuario
         {
             get
             {
-                return _id_usuario;
+                return id_usuario;
             }
             set
             {
-                _id_usuario = value;
+                id_usuario = value;
             }
         }
 
-        public string nombre
+        public int nombreusuario
         {
             get
             {
-                return _nombre;
+                return nombreusuario;
             }
             set
             {
-                _nombre = value;
+                nombreusuario = value;
+            }
+        }
+        public int contraseña
+        {
+            get
+            {
+                return contraseña;
+            }
+            set
+            {
+                contraseña = value;
             }
         }
 
-        public string apellido
+        public int nombre
         {
             get
             {
-                return _apellido;
+                return nombre;
             }
             set
             {
-                _apellido= value;
+                nombre = value;
             }
         }
 
-        public string telefono
+        public int apellido
         {
             get
             {
-                return _telefono;
+                return apellido;
             }
             set
             {
-                _telefono = value;
+                apellido = value;
             }
         }
-
-        public string mail
+        public int telefono
         {
             get
             {
-                return _mail;
+                return telefono;
             }
             set
             {
-                _mail= value;
+                telefono = value;
             }
         }
-
-        public int id_locales_favoritos
+        public int mail
         {
             get
             {
-                return _id_locales_favoritos;
+                return mail;
             }
             set
             {
-                _id_locales_favoritos = value;
+                mail = value;
             }
         }
     }
 }
+
+       
