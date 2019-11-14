@@ -10,14 +10,14 @@ namespace TP_Final_Grupo_06.Models
         int _id_local;
         string _nombre_local;
         int _piso;
-        int _zona;
+        int _id_rubro;
 
-        public Local(int id_local, string nombre_local, int piso, int lugar)
+        public Local(int id_local, string nombre_local, int piso, int id_rubro)
         {
             _id_local = id_local;
             _nombre_local = nombre_local;
             _piso = piso;
-            _zona = zona;
+            _id_rubro = id_rubro;
         }
 
         public int id_local
@@ -56,15 +56,15 @@ namespace TP_Final_Grupo_06.Models
             }
         }
 
-        public int zona
+        public int id_rubro
         {
             get
             {
-                return _zona;
+                return _id_rubro;
             }
             set
             {
-                _zona = value;
+                _id_rubro = value;
             }
         }
     }
