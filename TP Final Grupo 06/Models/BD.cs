@@ -32,7 +32,17 @@ namespace TP_Final_Grupo_06.Models
 
         }
 
-       
+        public static void Obtener_Local(Local UnLocal)
+        {
+            SqlConnection conn = Conectar();
+            SqlCommand consulta = conn.CreateCommand();
+            consulta.CommandText = "sp_CrearCliente";
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.Parameters.AddWithValue("@id", UnLocal.nombre);
+            consulta.ExecuteNonQuery();
+            Desconectar(conn);
+        }
+
         public static List<Local> Obtener_Todos_Locales()
         {
             List<Local> lista_local = new List<Local>();
