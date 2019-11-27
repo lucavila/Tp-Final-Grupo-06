@@ -17,7 +17,8 @@ namespace TP_Final_Grupo_06.Controllers
 
         public ActionResult MostrarLocales()
         {
-            ViewBag.Lista = BD.Obtener_Todos_Locales();
+            List<Local> lista = BD.Obtener_Todos_Locales();
+            ViewBag.ListaLocales = lista;
             return View();
         }
 

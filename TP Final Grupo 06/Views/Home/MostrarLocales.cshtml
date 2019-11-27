@@ -26,41 +26,17 @@
     </div>
 </nav>
 
-<div class="card" style="width: 32%;margin-top: 3%;margin-left:1%;float: left;">
-    <a href="~/Home/MostrarLocales"><img class="card-img-top" src="http://www.brandemia.org/wp-content/uploads/2011/09/logo_nike_principal.jpg" alt="Card image cap"></a>
-</div>
-<div class="card" style="width: 32%;margin-top: 3%;margin-left:1%;float: left;">
-    <a href="~/Home/MostrarLocales"><img class="card-img-top" src="http://www.brandemia.org/wp-content/uploads/2011/09/logo_nike_principal.jpg" alt="Card image cap"></a>
-</div>
-<div class="card" style="width: 32%;margin-top: 3%;margin-left:1%;float: left;">
-    <a href="~/Home/MostrarLocales"><img class="card-img-top" src="http://www.brandemia.org/wp-content/uploads/2011/09/logo_nike_principal.jpg" alt="Card image cap"></a>
-</div>
-<div class="card" style="width: 32%;margin-top: 3%;margin-left:1%;float: left;">
-    <a href="~/Home/MostrarLocales"><img class="card-img-top" src="http://www.brandemia.org/wp-content/uploads/2011/09/logo_nike_principal.jpg" alt="Card image cap"></a>
-</div>
-<div class="card" style="width: 32%;margin-top: 3%;margin-left:1%;float: left;">
-    <a href="~/Home/MostrarLocales"><img class="card-img-top" src="http://www.brandemia.org/wp-content/uploads/2011/09/logo_nike_principal.jpg" alt="Card image cap"></a>
-</div>
-<div class="card" style="width: 32%;margin-top: 3%;margin-left:1%;float: left;">
-    <a href="~/Home/MostrarLocales"><img class="card-img-top" src="http://www.brandemia.org/wp-content/uploads/2011/09/logo_nike_principal.jpg" alt="Card image cap"></a>
-</div>
-<div class="card" style="width: 32%;margin-top: 3%;margin-left:1%;float: left;">
-    <a href="~/Home/MostrarLocales"><img class="card-img-top" src="http://www.brandemia.org/wp-content/uploads/2011/09/logo_nike_principal.jpg" alt="Card image cap"></a>
-</div>
-<div class="card" style="width: 32%;margin-top: 3%;margin-left:1%;float: left;">
-    <a href="~/Home/MostrarLocales"><img class="card-img-top" src="http://www.brandemia.org/wp-content/uploads/2011/09/logo_nike_principal.jpg" alt="Card image cap"></a>
-</div>
-<div class="card" style="width: 32%;margin-top: 3%;margin-left:1%;float: left;">
-    <a href="~/Home/MostrarLocales"><img class="card-img-top" src="http://www.brandemia.org/wp-content/uploads/2011/09/logo_nike_principal.jpg" alt="Card image cap"></a>
-</div>
 
 
+@foreach (Local unLocal in ViewBag.ListaLocales)
+{
+    <div class="card" style="width: 32%;margin-top: 3%;margin-left:1%;float: left;">
+        <a href=""><img class="card-img-top" src="http://www.brandemia.org/wp-content/uploads/2011/09/logo_nike_principal.jpg" alt="Card image cap"></a>
+    </div>
+}
 
 
-
-
-
-
+<!--
 <h2>Locales</h2>
 
 <div class="container">
@@ -74,7 +50,7 @@
             </tr>
         </thead>
 
-        @foreach (Local l in ViewBag.Lista)
+        @foreach (Local l in ViewBag.ListaLocales)
         {
             <tbody>
                 <tr>
@@ -89,3 +65,4 @@
 </div>
 </body>
 </html>
+    -->
