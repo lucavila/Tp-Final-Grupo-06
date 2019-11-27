@@ -47,29 +47,29 @@ namespace TP_Final_Grupo_06.Controllers
         return View();
     }
 
-    [HttpPost]
-    public ActionResult Login(Usuario unUsuario)
-    {
-        if (unUsuario.usuario is null || unUsuario.contraseña is null)
+        [HttpPost]
+        public ActionResult Login(Usuario unUsuario)
         {
-            ViewBag.resultado = "Se debe ingresar usuario y contraseña";
-            return View("Login");
-        }
-        else
-        {
-            ViewBag.resultado = BD.LogIn(unUsuario);
-            if (ViewBag.resultado == "error")
+            if (unUsuario.usuario is null || unUsuario.contraseña is null)
             {
-                ViewBag.resultado = "El usuario o contraseña son incorrectos";
+                ViewBag.resultado = "Se debe ingresar usuario y contraseña";
                 return View("Login");
             }
             else
             {
-                return View("Index");
+                ViewBag.resultado = BD.LogIn(unUsuario);
+                if (ViewBag.resultado == "error")
+                {
+                    ViewBag.resultado = "El usuario o contraseña son incorrectos";
+                    return View("Login");
+                }
+                else
+                {
+                    return View("Index");
+                }
             }
-        }
 
-    
+        }
 
     public ActionResult Registrarse()
     {
