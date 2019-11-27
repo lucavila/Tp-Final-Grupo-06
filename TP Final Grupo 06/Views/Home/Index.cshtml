@@ -52,13 +52,5 @@
 </div>
 
 
-<h2>Login</h2>
 
-@using (Html.BeginForm("Login", "Home", FormMethod.Post))
-{
-    <p> Nombre del usuario: @Html.TextBoxFor(x => x.usuario)</p>
-    <p>Contraseña: @Html.TextBoxFor(x => x.contraseña)</p>
-    <input type="submit" value="Login" />
-    @ViewBag.resultado
-}
 

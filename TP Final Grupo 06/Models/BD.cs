@@ -32,29 +32,7 @@ namespace TP_Final_Grupo_06.Models
 
         }
 
-        /*public static List<Usuario> Obtener_Todos_Usuarios()
-        {
-            List<Usuario> lista = new List <Usuario>();
-            SqlConnection conn = Conectar();
-            SqlCommand consulta = conn.CreateCommand();
-            consulta.CommandText = "SELECT id_usuario, nombre, apellido, telefono, mail, id_locales_favoritos FROM Usuario";
-            consulta.CommandType = System.Data.CommandType.Text;
-            SqlDataReader data_reader = consulta.ExecuteReader();
-            while (data_reader.Read())
-            {
-                int id_usuario = Convert.ToInt32(data_reader["id_usuario"]);
-                string nombre = (data_reader["nombre"]).ToString();
-                string apellido = (data_reader["apellido"]).ToString();
-                string telefono = (data_reader["telefono"]).ToString();
-                string mail = (data_reader["mail"]).ToString();
-                int id_locales_favoritos = Convert.ToInt32(data_reader["id_locales_favoritos"]);
-                Usuario unUsuario = new Usuario(id_usuario, nombre, apellido, telefono, mail, id_locales_favoritos);
-                lista.Add(unUsuario);
-            }
-            Desconectar(conn);
-            return lista;
-        }*/
-
+       
         public static List<Local> Obtener_Todos_Locales()
         {
             List<Local> lista_local = new List<Local>();
@@ -76,5 +54,52 @@ namespace TP_Final_Grupo_06.Models
             return lista_local;
         }
 
+        public static string LogIn(Usuario unUsuario)
+        {
+            SqlConnection conn = Conectar();
+            SqlCommand consulta = conn.CreateCommand();
+            consulta.CommandText = "SP_IniciarSEsion";
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.Parameters.AddWithValue("@pUsuario", unUsuario.usuario);
+            consulta.Parameters.AddWithValue("@pContra", unUsuario.contraseña);
+            SqlDataReader data_reader = consulta.ExecuteReader();
+            string res = "";
+            if (data_reader.HasRows)
+            {
+                if (data_reader.Read())
+                {
+                    res = data_reader.ToString();
+                }
+            }
+            else
+            {
+                res = "error";
+            }
+            Desconectar(conn);
+            return res;
+        }
+
+        public static int CrearUsuario(Usuario nuevoUsuario2)
+        {
+            SqlConnection conn = Conectar();
+            SqlCommand consulta = conn.CreateCommand();
+            consulta.CommandText = "SP_Registrarse";
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.Parameters.AddWithValue("@pUsuario", nuevoUsuario2.usuario);
+            consulta.Parameters.AddWithValue("@pContra", nuevoUsuario2.contraseña);
+            int regsAfectados;
+            try
+            {
+                regsAfectados = consulta.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                regsAfectados = 0;
+            }
+            Desconectar(conn);
+            return regsAfectados;
+        }
+
     }
+
 }
