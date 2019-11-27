@@ -48,5 +48,17 @@
 </div>
 
 <div class="rectangle" style="height: 10vw;width: 100%;background-color:#ff0000;margin-top:20% ">
+
 </div>
+
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <p> Nombre del usuario: @Html.TextBoxFor(x => x.usuario)</p>
+    <p>Contraseña: @Html.TextBoxFor(x => x.contraseña)</p>
+    <input type="submit" value="Login" />
+    @ViewBag.resultado
+}
 
