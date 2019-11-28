@@ -31,7 +31,7 @@ namespace TP_Final_Grupo_06.Models
             conn.Close();
 
         }
-
+/*
         public static void Obtener_Local(Local UnLocal)
         {
             SqlConnection conn = Conectar();
@@ -42,7 +42,7 @@ namespace TP_Final_Grupo_06.Models
             consulta.ExecuteNonQuery();
             Desconectar(conn);
         }
-
+*/
         public static List<Local> Obtener_Todos_Locales()
         {
             List<Local> lista_local = new List<Local>();
