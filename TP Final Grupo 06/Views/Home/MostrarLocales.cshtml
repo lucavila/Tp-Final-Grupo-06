@@ -32,7 +32,7 @@
 @foreach (Local unLocal in ViewBag.ListaLocales)
 {
 <div class="card" style="width: 32%;margin-top: 3%;margin-left:1%;float: left;">
-<a href=@Url.Action("Local","Home",new {unLocal.id_local })><img class="card-img-top" src="http://www.brandemia.org/wp-content/uploads/2011/09/logo_nike_principal.jpg" alt="Card image cap"></a>
+<a href=@Url.Action("Local","Home",new {unLocal.id_local })><img class="card-img-top" src="../../logos/@unLocal.id_local" alt="Card image cap"></a>
 </div>
 }
 
