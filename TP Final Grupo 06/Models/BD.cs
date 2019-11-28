@@ -31,18 +31,23 @@ namespace TP_Final_Grupo_06.Models
             conn.Close();
 
         }
-/*
-        public static void Obtener_Local(Local UnLocal)
+
+        public static void Buscar_Local_Por_Id(string Id)
         {
             SqlConnection conn = Conectar();
             SqlCommand consulta = conn.CreateCommand();
-            consulta.CommandText = "sp_CrearCliente";
+            consulta.CommandText = "sp_TraerLocal";
             consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            consulta.Parameters.AddWithValue("@id", UnLocal.nombre);
-            consulta.ExecuteNonQuery();
+            consulta.Parameters.AddWithValue("@Id", Id);
+            SqlDataReader dr = consulta.ExecuteReader();
+            if (dr.Read())
+            {
+                string Nombre = dr["nombre_local"].ToString();
+                string descripcion = dr["descripcion"].ToString();
+            }
             Desconectar(conn);
         }
-*/
+
         public static List<Local> Obtener_Todos_Locales()
         {
             List<Local> lista_local = new List<Local>();
