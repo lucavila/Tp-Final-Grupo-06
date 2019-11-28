@@ -107,7 +107,8 @@ namespace TP_Final_Grupo_06.Controllers
         public ActionResult Local(int id_local)
         {
             ViewBag.id_local = id_local;
-            return View();
+            BD.Buscar_Local_Por_Id(id_local);
+            return RedirectToAction("Local");
         }
         
 

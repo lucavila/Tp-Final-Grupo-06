@@ -32,11 +32,11 @@ namespace TP_Final_Grupo_06.Models
 
         }
 
-        public static void Buscar_Local_Por_Id(string Id)
+        public static void Buscar_Local_Por_Id(int Id)
         {
             SqlConnection conn = Conectar();
             SqlCommand consulta = conn.CreateCommand();
-            consulta.CommandText = "sp_TraerLocal";
+            consulta.CommandText = "dbo.TraerLocal";
             consulta.CommandType = System.Data.CommandType.StoredProcedure;
             consulta.Parameters.AddWithValue("@Id", Id);
             SqlDataReader dr = consulta.ExecuteReader();
