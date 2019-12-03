@@ -13,13 +13,17 @@ namespace TP_Final_Grupo_06.Models
         int _id_rubro;
         string _descripcion;
 
-        public Local(int id_local, string nombre_local, int piso, int id_rubro)
+        public Local(int id_local, string nombre_local, int piso, int id_rubro, string descripcion)
         {
             _id_local = id_local;
             _nombre_local = nombre_local;
             _piso = piso;
             _id_rubro = id_rubro;
             _descripcion = descripcion;
+        }
+
+        public Local()
+        {
         }
 
         public int id_local

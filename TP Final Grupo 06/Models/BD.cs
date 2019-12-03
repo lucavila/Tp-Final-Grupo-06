@@ -106,7 +106,7 @@ namespace TP_Final_Grupo_06.Models
             SqlCommand consulta = conn.CreateCommand();
             consulta.CommandText = "SP_BuscarLocal";
             consulta.CommandType = System.Data.CommandType.Text;
-            Local unLocal = new Local();
+            Local local_buscado = new Local();
             SqlDataReader data_reader = consulta.ExecuteReader();
             while (data_reader.Read())
             {
@@ -114,8 +114,8 @@ namespace TP_Final_Grupo_06.Models
                 string nombre_local = (data_reader["nombre_local"]).ToString();
                 int piso = Convert.ToInt32(data_reader["piso"]);
                 int id_rubro = Convert.ToInt32(data_reader["id_rubro"]);
-                string descripcion = dr["descripcion"].ToString();
-                Local local_buscado(int id_local, string nombre_local, int piso, int id_rubro, string descripcion);
+                string descripcion = data_reader["descripcion"].ToString();
+                Local local_buscado(id_local, nombre_local, piso, id_rubro, descripcion);
 
             }
             return local_buscado;

@@ -90,7 +90,7 @@ namespace TP_Final_Grupo_06.Controllers
                 }
                 else
                 {
-                    a = BD.Traer_local_por_nombre(a);
+                    a = BD.Traer_Local_por_nombre(a);
                     ViewBag.id_local = a.id_local;
                     return View("Local");
                 }
