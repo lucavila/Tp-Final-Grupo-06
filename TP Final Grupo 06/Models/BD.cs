@@ -32,8 +32,9 @@ namespace TP_Final_Grupo_06.Models
 
         }
 
-        public static void Buscar_Local_Por_Id(int Id)
+        public static Local Buscar_Local_Por_Id(int Id)
         {
+            Local UnLocal = new Local();
             SqlConnection conn = Conectar();
             SqlCommand consulta = conn.CreateCommand();
             consulta.CommandText = "dbo.TraerLocal";
@@ -44,8 +45,13 @@ namespace TP_Final_Grupo_06.Models
             {
                 string Nombre = dr["nombre_local"].ToString();
                 string descripcion = dr["descripcion"].ToString();
+                int id_Local = Id;
+                UnLocal.id_local = id_Local;
+                UnLocal.nombre_local = Nombre;
+                UnLocal.descripcion = descripcion;
             }
             Desconectar(conn);
+            return UnLocal;
         }
 
         public static List<Local> Obtener_Todos_Locales()
@@ -53,7 +59,7 @@ namespace TP_Final_Grupo_06.Models
             List<Local> lista_local = new List<Local>();
             SqlConnection conn = Conectar();
             SqlCommand consulta = conn.CreateCommand();
-            consulta.CommandText = "SELECT id_local, nombre_local, piso, id_rubro FROM Local";
+            consulta.CommandText = "SELECT id_local, nombre_local, piso, id_rubro , descripcion , urlimagen FROM Local";
             consulta.CommandType = System.Data.CommandType.Text;
             SqlDataReader data_reader = consulta.ExecuteReader();
             while (data_reader.Read())
@@ -62,7 +68,9 @@ namespace TP_Final_Grupo_06.Models
                 string nombre_local = (data_reader["nombre_local"]).ToString();
                 int piso = Convert.ToInt32(data_reader["piso"]);
                 int id_rubro = Convert.ToInt32(data_reader["id_rubro"]);
-                Local unLocal = new Local(id_local, nombre_local, piso, id_rubro);
+                string descripcion = data_reader["descripcion"].ToString();
+                string urlimagen = data_reader["urlimagen"].ToString();
+                Local unLocal = new Local(id_local, nombre_local, piso, id_rubro,descripcion, urlimagen);
                 lista_local.Add(unLocal);
             }
             Desconectar(conn);
