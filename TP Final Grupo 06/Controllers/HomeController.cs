@@ -72,7 +72,33 @@ namespace TP_Final_Grupo_06.Controllers
 
         }
 
-    public ActionResult Registrarse()
+        [HttpPost]
+        public ActionResult Busqueda(Local a)
+        {
+            if (a.nombre_local is null)
+            {
+                ViewBag.resultado = "Se debe ingresar un local";
+                return View("Index");
+            }
+            else
+            {
+                ViewBag.resultado = BD.Buscar_local_por_nombre(a);
+                if (ViewBag.resultado == "error")
+                {
+                    ViewBag.resultado = "El local no existe";
+                    return View("Index");
+                }
+                else
+                {
+                    a = BD.Traer_local_por_nombre(a);
+                    ViewBag.id_local = a.id_local;
+                    return View("Local");
+                }
+            }
+
+        }
+
+        public ActionResult Registrarse()
     {
         return View();
     }

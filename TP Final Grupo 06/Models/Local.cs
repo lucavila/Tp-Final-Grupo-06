@@ -11,6 +11,7 @@ namespace TP_Final_Grupo_06.Models
         string _nombre_local;
         int _piso;
         int _id_rubro;
+        string _descripcion;
 
         public Local(int id_local, string nombre_local, int piso, int id_rubro)
         {
@@ -18,6 +19,7 @@ namespace TP_Final_Grupo_06.Models
             _nombre_local = nombre_local;
             _piso = piso;
             _id_rubro = id_rubro;
+            _descripcion = descripcion;
         }
 
         public int id_local
@@ -65,6 +67,18 @@ namespace TP_Final_Grupo_06.Models
             set
             {
                 _id_rubro = value;
+            }
+        }
+
+        public string descripcion
+        {
+            get
+            {
+                return _descripcion;
+            }
+            set
+            {
+                _descripcion = value;
             }
         }
     }
