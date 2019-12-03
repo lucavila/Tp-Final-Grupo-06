@@ -118,8 +118,8 @@ namespace TP_Final_Grupo_06.Models
                 Local local_buscado(id_local, nombre_local, piso, id_rubro, descripcion);
 
             }
-            return local_buscado;
             Desconectar(conn);
+            return local_buscado;
         }
 
         public static string LogIn(Usuario unUsuario)
