@@ -172,6 +172,30 @@ namespace TP_Final_Grupo_06.Models
             return regsAfectados;
         }
 
+        public static int CrearLocal(Local NuevoLocal2)
+        {
+            SqlConnection conn = Conectar();
+            SqlCommand consulta = conn.CreateCommand();
+            consulta.CommandText = "SP_Registrarse";
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.Parameters.AddWithValue("@NombreLoc", nuevoLocal2);
+            consulta.Parameters.AddWithValue("@Piso", nuevoLocal2.contraseña);
+            consulta.Parameters.AddWithValue("@IdRubro", nuevoLocal2.usuario);
+            consulta.Parameters.AddWithValue("@Descripcion", nuevoLocal2.usuario);
+            consulta.Parameters.AddWithValue("@UrlImagen", nuevoLocal2.usuario);
+            int regsAfectados;
+            try
+            {
+                regsAfectados = consulta.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                regsAfectados = 0;
+            }
+            Desconectar(conn);
+            return regsAfectados;
+        }
+
 
     }
 

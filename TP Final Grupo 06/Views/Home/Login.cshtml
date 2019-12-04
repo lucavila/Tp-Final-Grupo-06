@@ -9,7 +9,7 @@
 @using (Html.BeginForm("Login", "Home", FormMethod.Post))
 {
     <p> Nombre del usuario: @Html.TextBoxFor(x => x.usuario)</p>
-    <p>Contraseña: @Html.TextBoxFor(x => x.contraseña)</p>
+    <p>Contraseña: @Html.TextBoxFor(x => x.contraseña, new { type = "password" })</p>
     <input type="submit" value="Login" />
     @ViewBag.resultado
 }

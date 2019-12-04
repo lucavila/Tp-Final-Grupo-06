@@ -11,7 +11,6 @@ namespace TP_Final_Grupo_06.Controllers
     {
         public ActionResult Index()
         {
-            //ViewBag.Lista = BD.Obtener_Todos_Usuarios();
             return View();
         }
 
@@ -72,7 +71,7 @@ namespace TP_Final_Grupo_06.Controllers
                 }
             }
         }
-
+/*
         [HttpPost]
         public ActionResult Busqueda(Local a)
         {
@@ -98,7 +97,7 @@ namespace TP_Final_Grupo_06.Controllers
             }
 
         }
-
+        */
         public ActionResult Registrarse()
     {
         return View();
@@ -140,8 +139,24 @@ namespace TP_Final_Grupo_06.Controllers
             return View();
         }
 
-        public ActionResult AñadirLocal()
+        public ActionResult AñadirLocal(Local NuevoLocal)
         {
+            if (NuevoLocal.descripcion == null || NuevoLocal.id_rubro == null || NuevoLocal.nombre_local == null || NuevoLocal.piso == null || NuevoLocal.urlimagen == null)
+            {
+                ViewBag.resultado = "Se debe ingresar los datos del nuevo local correctamente";
+                return View("AñadirLocal");
+            }
+            else
+            {
+                Local NuevoLocal2 = new Local();
+                NuevoLocal2.nombre_local = NuevoLocal.nombre_local;
+                NuevoLocal2.descripcion = NuevoLocal.descripcion;
+                NuevoLocal2.id_rubro = NuevoLocal.id_rubro;
+                NuevoLocal2.piso = NuevoLocal.piso;
+                NuevoLocal2.urlimagen = NuevoLocal.urlimagen;
+                int Resultado = 
+            }
+
             return View();
         }
 

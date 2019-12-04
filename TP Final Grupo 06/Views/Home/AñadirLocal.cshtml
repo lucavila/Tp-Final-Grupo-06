@@ -1,6 +1,18 @@
-﻿
+﻿@using TP_Final_Grupo_06.Models;
+@model Local
+
 @{
     ViewBag.Title = "AñadirLocal";
 }
-
 <h2>AñadirLocal</h2>
+
+@using (Html.BeginForm("AñadirLocal", "Home", FormMethod.Post))
+{
+    <p> Nombre del Local: @Html.TextBoxFor(x => x.nombre_local)</p>
+    <p>Piso: @Html.TextBoxFor(x => x.piso)</p>
+    <p>Rubro: @Html.TextBoxFor(x => x.id_rubro)</p>
+    <p>Descripcion: @Html.TextBoxFor(x => x.descripcion)</p>
+    <p>URL de la Imagen: @Html.TextBoxFor(x => x.urlimagen)</p>
+    <input type="submit" value="Agregar Local" />
+    @ViewBag.resultado
+}
