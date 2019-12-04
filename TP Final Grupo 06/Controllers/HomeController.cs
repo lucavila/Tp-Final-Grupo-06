@@ -162,7 +162,7 @@ namespace TP_Final_Grupo_06.Controllers
                 }
                 else
                 {
-                    return View("AñadirLocal");
+                    return View("Index");
                 }
             }
         }
