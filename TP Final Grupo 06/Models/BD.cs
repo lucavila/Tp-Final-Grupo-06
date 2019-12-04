@@ -54,31 +54,8 @@ namespace TP_Final_Grupo_06.Models
             return UnLocal;
 
         }
-/*
-        public static string Buscar_local_por_nombre(Local a)
-        {
-            SqlConnection conn = Conectar();
-            string res = "";
-            SqlCommand consulta = conn.CreateCommand();
-            consulta.CommandText = "SP_BuscarLocal";
-            consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            consulta.Parameters.AddWithValue("@nombre_local", nombre_local);
-            SqlDataReader dr = consulta.ExecuteReader();
-            if (dr.HasRows)
-            {
-                if (dr.Read())
-                {
-                    res = dr.ToString();
-                }
-            }
-            else
-            {
-                res = "error";
-            }
-            return res;
-            Desconectar(conn);
-        }
-        */
+
+
         public static List<Local> Obtener_Todos_Locales()
         {
             List<Local> lista_local = new List<Local>();
@@ -95,20 +72,45 @@ namespace TP_Final_Grupo_06.Models
                 int id_rubro = Convert.ToInt32(data_reader["id_rubro"]);
                 string descripcion = data_reader["descripcion"].ToString();
                 string urlimagen = data_reader["urlimagen"].ToString();
-                Local unLocal = new Local(id_local, nombre_local, piso, id_rubro,descripcion, urlimagen);
+                Local unLocal = new Local(id_local, nombre_local, piso, id_rubro, descripcion, urlimagen);
                 lista_local.Add(unLocal);
             }
             Desconectar(conn);
             return lista_local;
         }
-/*
-        public static Local Traer_Local_por_nombre()
+
+        public static string Buscar_local_por_nombre(Local a)
         {
-            List<Local> lista_local = new List<Local>();
+            SqlConnection conn = Conectar();
+            string res = "";
+            SqlCommand consulta = conn.CreateCommand();
+            consulta.CommandText = "SP_BuscarLocal";
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.Parameters.AddWithValue("@nombre_local", a.nombre_local);
+            SqlDataReader dr = consulta.ExecuteReader();
+            if (dr.HasRows)
+            {
+                if (dr.Read())
+                {
+                    res = dr.ToString();
+                }
+            }
+            else
+            {
+                res = "error";
+            }
+            Desconectar(conn);
+            return res;
+        }
+
+
+        public static Local Traer_Local_por_nombre(Local a)
+        {
             SqlConnection conn = Conectar();
             SqlCommand consulta = conn.CreateCommand();
             consulta.CommandText = "SP_BuscarLocal";
-            consulta.CommandType = System.Data.CommandType.Text;
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.Parameters.AddWithValue("@nombre_local", a.nombre_local);
             Local local_buscado = new Local();
             SqlDataReader data_reader = consulta.ExecuteReader();
             while (data_reader.Read())
@@ -118,13 +120,14 @@ namespace TP_Final_Grupo_06.Models
                 int piso = Convert.ToInt32(data_reader["piso"]);
                 int id_rubro = Convert.ToInt32(data_reader["id_rubro"]);
                 string descripcion = data_reader["descripcion"].ToString();
-                Local local_buscado(id_local, nombre_local, piso, id_rubro, descripcion);
+                string urlimagen = data_reader["urlimagen"].ToString();
+                local_buscado = new Local(id_local, nombre_local, piso, id_rubro, descripcion, urlimagen);
 
             }
             Desconectar(conn);
             return local_buscado;
         }
-        */
+        
         public static string LogIn(Usuario unUsuario)
         {
             SqlConnection conn = Conectar();

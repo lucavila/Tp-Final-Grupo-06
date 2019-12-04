@@ -71,7 +71,7 @@ namespace TP_Final_Grupo_06.Controllers
                 }
             }
         }
-/*
+
         [HttpPost]
         public ActionResult Busqueda(Local a)
         {
@@ -97,7 +97,7 @@ namespace TP_Final_Grupo_06.Controllers
             }
 
         }
-        */
+        
         public ActionResult Registrarse()
     {
         return View();
