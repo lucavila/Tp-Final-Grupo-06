@@ -124,7 +124,7 @@ namespace TP_Final_Grupo_06.Controllers
             }
             else
             {
-                return View("Index");
+                    return View("Index");
             }
         }
 
