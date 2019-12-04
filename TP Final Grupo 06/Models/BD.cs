@@ -176,13 +176,13 @@ namespace TP_Final_Grupo_06.Models
         {
             SqlConnection conn = Conectar();
             SqlCommand consulta = conn.CreateCommand();
-            consulta.CommandText = "SP_Registrarse";
+            consulta.CommandText = "SP_RegistrarLocal";
             consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            consulta.Parameters.AddWithValue("@NombreLoc", nuevoLocal2);
-            consulta.Parameters.AddWithValue("@Piso", nuevoLocal2.contraseña);
-            consulta.Parameters.AddWithValue("@IdRubro", nuevoLocal2.usuario);
-            consulta.Parameters.AddWithValue("@Descripcion", nuevoLocal2.usuario);
-            consulta.Parameters.AddWithValue("@UrlImagen", nuevoLocal2.usuario);
+            consulta.Parameters.AddWithValue("@NombreLoc", NuevoLocal2.nombre_local);
+            consulta.Parameters.AddWithValue("@Piso", NuevoLocal2.piso);
+            consulta.Parameters.AddWithValue("@IdRubro", NuevoLocal2.id_rubro);
+            consulta.Parameters.AddWithValue("@Descripcion", NuevoLocal2.descripcion);
+            consulta.Parameters.AddWithValue("@UrlImagen", NuevoLocal2.urlimagen);
             int regsAfectados;
             try
             {

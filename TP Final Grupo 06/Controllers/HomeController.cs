@@ -154,10 +154,17 @@ namespace TP_Final_Grupo_06.Controllers
                 NuevoLocal2.id_rubro = NuevoLocal.id_rubro;
                 NuevoLocal2.piso = NuevoLocal.piso;
                 NuevoLocal2.urlimagen = NuevoLocal.urlimagen;
-                int Resultado = 
+                int Resultado = BD.CrearLocal(NuevoLocal2);
+                if (Resultado == 0)
+                {
+                    ViewBag.resultado = "Este nombre de local ya esta siendo utilizado";
+                    return View("AñadirLocal");
+                }
+                else
+                {
+                    return View("AñadirLocal");
+                }
             }
-
-            return View();
         }
 
 
