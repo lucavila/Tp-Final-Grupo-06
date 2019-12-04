@@ -44,11 +44,18 @@ namespace TP_Final_Grupo_06.Models
             if (dr.Read())
             {
                 string Nombre = dr["nombre_local"].ToString();
-                string descripcion = dr["descripcion"].ToString();
+                string Descripcion = dr["descripcion"].ToString();
+                int Piso = Convert.ToInt32(dr["piso"]);
+                int IdRubro = Convert.ToInt32(dr["id_rubro"]);
+                string UrlImagen = dr["urlimagen"].ToString();
+
                 int id_Local = Id;
                 UnLocal.id_local = id_Local;
                 UnLocal.nombre_local = Nombre;
-                UnLocal.descripcion = descripcion;
+                UnLocal.descripcion = Descripcion;
+                UnLocal.piso = Piso;
+                UnLocal.id_rubro = IdRubro;
+                UnLocal.urlimagen = UrlImagen;
             }
             Desconectar(conn);
             return UnLocal;
