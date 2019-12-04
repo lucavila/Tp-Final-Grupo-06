@@ -66,10 +66,11 @@ namespace TP_Final_Grupo_06.Controllers
                 }
                 else
                 {
+                    Session["NombreUsuario"] = unUsuario.usuario;
+                    Session["Contraseña"] = unUsuario.contraseña;
                     return View("Index");
                 }
             }
-
         }
 
     public ActionResult Registrarse()
@@ -112,7 +113,13 @@ namespace TP_Final_Grupo_06.Controllers
             ViewBag.Local = UnLocal;
             return View();
         }
-        
+
+        public ActionResult AñadirLocal()
+        {
+            return View();
+        }
+
+
 
     }
 
