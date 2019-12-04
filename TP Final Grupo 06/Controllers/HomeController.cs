@@ -90,9 +90,9 @@ namespace TP_Final_Grupo_06.Controllers
                 }
                 else
                 {
-                    a = BD.Traer_Local_por_nombre(a);
-                    ViewBag.id_local = a.id_local;
-                    return View("Local");
+                    int id_local = 0;
+                    id_local = BD.Traer_Id_Local_por_nombre(a);
+                    return RedirectToAction("Local", id_local);
                 }
             }
 
@@ -129,6 +129,10 @@ namespace TP_Final_Grupo_06.Controllers
         }
 
     }
+        public ActionResult Local()
+        {
+            return View();
+        }
 
         public ActionResult Local(int id_local)
         {

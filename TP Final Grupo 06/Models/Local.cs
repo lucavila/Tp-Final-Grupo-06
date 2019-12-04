@@ -29,7 +29,6 @@ namespace TP_Final_Grupo_06.Models
             _urlimagen = urlimagen;
         }
 
-
         public int id_local
         {
             get

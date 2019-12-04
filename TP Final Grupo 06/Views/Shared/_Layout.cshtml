@@ -1,5 +1,6 @@
 ﻿@using TP_Final_Grupo_06.Models;
 @model Local
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@
                 @using (Html.BeginForm("Busqueda", "Home", FormMethod.Post))
                 {
                     @Html.TextBoxFor(a => a.nombre_local)
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ir a local</button>
+                    <input type="submit" value="Ir a local" />
                 }
             </div>
         </nav>

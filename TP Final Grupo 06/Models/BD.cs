@@ -111,28 +111,23 @@ namespace TP_Final_Grupo_06.Models
         }
 
 
-        public static Local Traer_Local_por_nombre(Local a)
+        public static int Traer_Id_Local_por_nombre(Local a)
         {
             SqlConnection conn = Conectar();
             SqlCommand consulta = conn.CreateCommand();
-            consulta.CommandText = "SP_BuscarLocal";
+            consulta.CommandText = "SP_LocalPorId";
             consulta.CommandType = System.Data.CommandType.StoredProcedure;
             consulta.Parameters.AddWithValue("@nombre_local", a.nombre_local);
-            Local local_buscado = new Local();
+            int Algo = 0;
             SqlDataReader data_reader = consulta.ExecuteReader();
             while (data_reader.Read())
             {
                 int id_local = Convert.ToInt32(data_reader["id_local"]);
-                string nombre_local = (data_reader["nombre_local"]).ToString();
-                int piso = Convert.ToInt32(data_reader["piso"]);
-                int id_rubro = Convert.ToInt32(data_reader["id_rubro"]);
-                string descripcion = data_reader["descripcion"].ToString();
-                string urlimagen = data_reader["urlimagen"].ToString();
-                local_buscado = new Local(id_local, nombre_local, piso, id_rubro, descripcion, urlimagen);
+                Algo = id_local;
 
             }
             Desconectar(conn);
-            return local_buscado;
+            return Algo;
         }
         
         public static string LogIn(Usuario unUsuario)
