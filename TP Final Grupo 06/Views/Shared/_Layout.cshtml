@@ -49,6 +49,7 @@
                 </ul>
                 @using (Html.BeginForm("Busqueda", "Home", FormMethod.Post))
                 {
+                    @ViewBag.resultado;
                     @Html.TextBoxFor(a => a.nombre_local)
                     <input type="submit" value="Ir a local" />
                 }
