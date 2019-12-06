@@ -233,11 +233,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Home\Algo.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Registrarse.cshtml" />
     <Content Include="Views\Home\Local.cshtml" />
     <Content Include="Views\Home\AñadirLocal.cshtml" />
+    <Content Include="Views\Home\CerrarSesion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

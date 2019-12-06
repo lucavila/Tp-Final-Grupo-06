@@ -22,11 +22,6 @@ namespace TP_Final_Grupo_06.Controllers
             return View();
         }
 
-        public ActionResult Algo()
-        {
-            return View();
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -180,6 +175,14 @@ namespace TP_Final_Grupo_06.Controllers
                     return View("Index");
                 }
             }
+        }
+
+        public ActionResult CerrarSesion()
+        {
+            Session["NombreUsuario"] = null;
+            Session["Contraseña"] = null;
+
+            return View("Index");
         }
 
 
