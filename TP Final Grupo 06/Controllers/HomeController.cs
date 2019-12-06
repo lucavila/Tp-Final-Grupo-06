@@ -79,7 +79,7 @@ namespace TP_Final_Grupo_06.Controllers
             if (a.nombre_local is null)
             {
                 ViewBag.resultado = "Se debe ingresar un local";
-                return View("Index");
+                return View("Local");
             }
             else
             {
@@ -87,7 +87,7 @@ namespace TP_Final_Grupo_06.Controllers
                 if (ViewBag.resultado == "error")
                 {
                     ViewBag.resultado = "El local no existe";
-                    return View("Index");
+                    return View("Local");
                 }
                 else
                 {
