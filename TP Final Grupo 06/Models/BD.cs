@@ -62,7 +62,6 @@ namespace TP_Final_Grupo_06.Models
 
         }
 
-
         public static List<Local> Obtener_Todos_Locales()
         {
             List<Local> lista_local = new List<Local>();
@@ -85,6 +84,22 @@ namespace TP_Final_Grupo_06.Models
             Desconectar(conn);
             return lista_local;
         }
+
+
+       /* public static string Obtener_Rubro(int id_rubro)
+        {
+            SqlConnection conn = Conectar();
+            SqlCommand consulta = conn.CreateCommand();
+            consulta.CommandText = "SELECT nom_rubro FROM Rubros";
+            consulta.CommandType = System.Data.CommandType.Text;
+            SqlDataReader data_reader = consulta.ExecuteReader();
+            while (data_reader.Read())
+            {
+                string nom_rubro = data_reader["nom_rubro"].ToString();
+            }
+            Desconectar(conn);
+            return nom_rubro;
+        }*/
 
         public static string Buscar_local_por_nombre(Local a)
         {
