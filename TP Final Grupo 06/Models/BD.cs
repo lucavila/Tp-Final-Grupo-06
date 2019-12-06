@@ -162,7 +162,8 @@ namespace TP_Final_Grupo_06.Models
                 if (data_reader.Read())
                 {
 
-                    res = data_reader.ToString();
+                    //  res = data_reader.ToString();
+                    res = "";
                 }
             }
             else
