@@ -1,17 +1,6 @@
 ﻿@using TP_Final_Grupo_06.Models;
 @model Local
 
-
-@if (ViewBag.resultado = null)
-{
-    ViewBag.resultado;
-}
-
-else
-{
-
-
-
 @{
     ViewBag.Title = "Local";
 }
@@ -24,7 +13,6 @@ else
 
 <div>
     <h1> @ViewBag.Local.nombre_local </h1>
-
 </div>
 
 @ViewBag.id_local
@@ -33,5 +21,3 @@ else
 @ViewBag.Local.piso
 @ViewBag.Local.id_rubro
 @ViewBag.Local.urlimagen
-
-    }
