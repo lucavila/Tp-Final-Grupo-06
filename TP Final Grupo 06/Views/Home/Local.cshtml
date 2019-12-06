@@ -5,6 +5,16 @@
 }
 
 <h2>Local</h2>
+
+<div class="card" style="width: 32%;height:5%;margin-top: 3%;margin-left:1%;float: left;">
+<a href=@Url.Action("Local","Home",new { @ViewBag.id_local })><img class="card-img-top" src="@ViewBag.Local.urlimagen" alt="Card image cap"></a>
+</div>
+
+<div>
+    <h1> @ViewBag.Local.nombre_local </h1>
+
+</div>
+
 @ViewBag.id_local
 @ViewBag.Local.nombre_local
 @ViewBag.Local.descripcion

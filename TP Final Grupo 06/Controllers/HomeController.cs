@@ -9,6 +9,8 @@ namespace TP_Final_Grupo_06.Controllers
 {
     public class HomeController : Controller
     {
+        int id_local;
+
         public ActionResult Index()
         {
             return View();
@@ -129,10 +131,10 @@ namespace TP_Final_Grupo_06.Controllers
         }
 
     }
-        public ActionResult Local()
+        /*public ActionResult Local()
         {
             return View();
-        }
+        }*/
 
         public ActionResult Local(int id_local)
         {
