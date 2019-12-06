@@ -86,7 +86,7 @@ namespace TP_Final_Grupo_06.Models
         }
 
 
-        public static string Obtener_Rubro(int id_rubro)
+       /* public static string Obtener_Rubro(int id_rubro)
         {
             SqlConnection conn = Conectar();
             string nom_rubro = "";
@@ -101,7 +101,7 @@ namespace TP_Final_Grupo_06.Models
             }
             Desconectar(conn);
             return nom_rubro;
-        }
+        }*/
 
         public static string Buscar_local_por_nombre(Local a)
         {
