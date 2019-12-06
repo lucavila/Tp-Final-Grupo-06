@@ -148,8 +148,9 @@ namespace TP_Final_Grupo_06.Controllers
             Local UnLocal = new Local();
             UnLocal = BD.Buscar_Local_Por_Id(id_local);
             ViewBag.Local = UnLocal;
-           /* int id_rubro = UnLocal.id_rubro;
-            string nom_rubro = BD.Obtener_Rubro(id_rubro);*/
+            int id_rubro = UnLocal.id_rubro;
+            string nom_rubro = BD.Obtener_Rubro(id_rubro);
+            ViewBag.nom_rubro = nom_rubro;
             return View();
         }
 
