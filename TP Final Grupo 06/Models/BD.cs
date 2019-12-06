@@ -89,13 +89,15 @@ namespace TP_Final_Grupo_06.Models
        /* public static string Obtener_Rubro(int id_rubro)
         {
             SqlConnection conn = Conectar();
+            string nom_rubro = "";
             SqlCommand consulta = conn.CreateCommand();
-            consulta.CommandText = "SELECT nom_rubro FROM Rubros";
-            consulta.CommandType = System.Data.CommandType.Text;
-            SqlDataReader data_reader = consulta.ExecuteReader();
-            while (data_reader.Read())
+            consulta.CommandText = "SP_TraerRubro";
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.Parameters.AddWithValue("@id_rubro", id_rubro);
+            SqlDataReader dr = consulta.ExecuteReader();
+            while (dr.Read())
             {
-                string nom_rubro = data_reader["nom_rubro"].ToString();
+                nom_rubro = dr["nom_rubro"].ToString();
             }
             Desconectar(conn);
             return nom_rubro;
