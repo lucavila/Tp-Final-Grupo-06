@@ -5,19 +5,48 @@
     ViewBag.Title = "Local";
 }
 
-<h2>Local</h2>
 
-<div class="card" style="width: 32%;height:5%;margin-top: 4%;margin-left:1%;float: left;">
-<a><img class="card-img-top" src="@ViewBag.Local.urlimagen" alt="Card image cap"></a>
+<div class="card" style="width: 32%;height:5%;margin-top: 6%;float:left;float: left;">
+    <a><img class="card-img-top" src="@ViewBag.Local.urlimagen" alt="Card image cap"></a>
 </div>
 
 <div>
     <h1> @ViewBag.Local.nombre_local </h1>
 </div>
 
-@ViewBag.id_local
+<div style="width:68%;height:5%">
+    <h3>Descripcion</h3>
+    <a style="float:left">@ViewBag.Local.descripcion</a>
 
-@ViewBag.Local.descripcion
-@ViewBag.Local.piso
-@ViewBag.Local.id_rubro
-@ViewBag.Local.urlimagen
+</div>
+
+<div style="width:100%;height:5%">
+    <h3 style="text-align:left"><br /><br /><br />Piso</h3>
+    <a style="text-align:center">@ViewBag.Local.piso</a>
+</div>
+
+<h3 style="text-align:left"><br /><br /><br />Rubro</h3>
+
+@switch (@ViewBag.Local.id_rubro)
+{
+    case 1:<a style="text-align:center">Vestimenta Deportiva y Calzado</a>
+        break;
+    case 2:<a style="text-align:center">Tecnología</a>
+        break;
+    case 3:<a style="text-align:center">Gastrnomía</a>
+        break;
+    case 4:<a style="text-align:center">Vestimenta Casual y Calzado</a>
+        break;
+    case 5:<a style="text-align:center">Entretenimiento</a>
+        break;
+    case 6:<a style="text-align:center">Jugueteria</a>
+        break;
+    case 7:<a style="text-align:center">Libreria</a>
+        break;
+    default:<a style="text-align:center">Joyeria y Relojeria</a>
+        break;
+}
+
+
+
+
